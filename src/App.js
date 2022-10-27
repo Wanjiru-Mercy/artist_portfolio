@@ -4,7 +4,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 
-import 'antd/dist/antd.css'
 import '@ant-design/icons'
 
 
@@ -12,6 +11,7 @@ import '@ant-design/icons'
 
 import UploadImage from "./components/UploadImage";
 import Header from "./components/Header";
+import Info from "./components/Info";
 
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
 
 
     <Route  path="/uploadimage" element={<UploadImage/>}/>
+    <Route  path="/info" element={<Info/>}/>
     <Route  path="/" element={<Header/>}/>
 
 
