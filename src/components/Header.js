@@ -7,7 +7,9 @@ import { AntDesignOutlined } from '@ant-design/icons';
 import { NavLink } from 'react-router-dom'
 import Bonzo from '../Images/Bonzo.jpeg';
 import IG from '../Images/instagram.png';
+import Icon from '../Images/paint-tube.png';
 import IconMenu from '../Images/menu.svg';
+import Arrow from '../Images/arrow.svg';
 import Mail from '../Images/gmail.png';
 import { Water  } from './Water';
 import { Illustrations } from './Illustrations';
@@ -16,6 +18,14 @@ import { Acrylics } from './Acrylics';
 import { Info } from './Info';
 import 'antd/dist/antd.less';
 import IconClose from '../Images/cancel.png';
+import ImageGallery from 'react-image-gallery'
+import {illustrations} from '../gallery/illustrations';
+import {charcoal_pencil} from '../gallery/charcoal_pencil';
+import {water_colors} from '../gallery/water_colors';
+import {acrylics} from '../gallery/acrylics';
+import { murals } from '../gallery/murals';
+
+import Gallery from "react-photo-gallery";
 
 //import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -77,6 +87,8 @@ img{
 margin-top: 1rem;
 `
 
+
+
 const CloseIcon = styled.div `
 justify-content: center;
 display: flex;
@@ -96,12 +108,7 @@ justify-content: center;
 
 `
 
-const Gallery = styled.div `
-margin-top: 2rem;
-padding: 1rem;
 
-
-`
 
 const Header = () => {
 
@@ -115,7 +122,12 @@ const Header = () => {
     setOpen(false);
   };
 
-
+  
+  const BasicRowsAcrylics = () => <Gallery photos={acrylics} />;
+  const BasicRowsWater = () => <Gallery photos={water_colors} />;
+  const BasicRowsIllustrations = () => <Gallery photos={illustrations} />;
+  const BasicRowsMurals = () => <Gallery photos={murals} />;
+  const BasicRowsCharcoal = () => <Gallery photos={charcoal_pencil} />;
   return (
 
     <MainContainer>
@@ -146,74 +158,60 @@ const Header = () => {
            
            </SocialIcon>
 
-          <div>
-          <MenuIcon>
-           <img src={IconMenu} alt="instagram" onClick={showDrawer}  />
-           </MenuIcon>
-
-          
-          </div>
-           
-
         
-
+          
         <Tabz>
 
-          {/* <Button style={{backgroundColor:'#8b008b'}}>
-            TEST
-          </Button>
-          <Button style={{backgroundColor:'#880085'}}>
-            TEST
-          </Button>
-          <Button style={{backgroundColor:'#e0b0ff'}}>
-            TEST
-          </Button>
-          <Button style={{backgroundColor:'#ca2c92'}}>
-            TEST
-          </Button>
-          <Button style={{backgroundColor:'#a50b5e'}}>
-            TEST
-          </Button> */}
-  {/* <Tabs  size={{
-                    xs: 64,
-                    sm: 64,
-                    md: 68,
-                    lg: 72,
-                    xl: 80,
-                    xxl: 100,
-                  }} defaultActiveKey="1" centered>
-    <TabPane tab="Acrylics" key="1">
-      Content of Tab Pane 1
-    </TabPane>
-    <TabPane tab="Water Colors" key="2">
-      Content of Tab Pane 2
-    </TabPane>
-    <TabPane tab="Illustrations" key="3">
-      Content of Tab Pane 3
-    </TabPane>
-    <TabPane tab="Graffiti/Murals" key="4">
-      Content of Tab Pane 3
-    </TabPane>
-    <TabPane tab="Charcoal" key="5">
-      Content of Tab Pane 3
-    </TabPane>
-  </Tabs> */}
-        </Tabz>
+
+
+<Tabs
+    size='small'
+    centered
+    defaultActiveKey="1"
+    items={[
+      {
+        label: `Acrylics`,
+        key: '1',
+        children: <BasicRowsAcrylics />
+      },
+      {
+        label: `Water Colors`,
+        key: '2',
+        children: <BasicRowsWater/>
+      },
+      {
+        label: `Illustrations`,
+        key: '3',
+        children: <BasicRowsIllustrations />
+      },
+      {
+        label: `Graffiti/Murals`,
+        key: '4',
+        children: <BasicRowsMurals/>
+      },
+      {
+        label: `Charcoal`,
+        key: '5',
+        children: <BasicRowsCharcoal />
+      },
+    ]}
+  />
+</Tabz>
+           
+      
+        
+
 
        
-       
-      <Drawer 
-      
-      headerStyle={{ display:'flex' , justifyContent:'center' , float:"right", fontFamily:'Raleway'}} 
-      placement="top"
-      drawerStyle={{backgroundColor:'#fffafa'}} 
-      onClose={onClose} 
-      visible={open}
-      closable={false} 
-      contentWrapperStyle={{display:'flex' , justifyContent:'center' ,  fontFamily:'Raleway', }}
-      
-      >
-        
+        <Drawer 
+        headerStyle={{ display:'flex' , justifyContent:'center' , float:"right", fontFamily:'Raleway'}} 
+         placement="top" 
+         closable={false}
+         onClose={onClose} 
+         open={open}
+         contentWrapperStyle={{  fontFamily:'Raleway', }}
+         >
+     
        
 
         <h3 style={{fontSize:'28px',  display:'flex', justifyContent:'center'}}>MENU</h3>

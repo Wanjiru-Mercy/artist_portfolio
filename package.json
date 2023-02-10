@@ -12,15 +12,24 @@
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.21.3",
     "antd-img-crop": "^4.2.3",
+    "cloudinary": "^1.32.0",
+    "cloudinary-react": "^1.8.1",
     "craco-less": "^2.0.0",
+    "deps": "^1.0.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.2",
+    "multer": "^1.4.5-lts.1",
+    "pro-gallery": "^4.1.76",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-image-gallery": "^1.2.11",
+    "react-photo-gallery": "^8.0.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
-  
   "scripts": {
     "start": "craco start",
     "build": "craco build",
@@ -44,5 +53,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.7"
   }
 }
